@@ -1,0 +1,81 @@
+body{
+	background-color: #000;
+}
+
+#header{
+	padding-top: 40px;
+}
+
+.icone, .doc{
+	width: 45px;
+	height: 45px;
+}
+
+.icone{
+	display: block;
+	margin: auto;
+}
+
+.formulaire{
+	padding-top: 20px; 
+	padding-bottom: 20px;
+}
+
+.champ, .filariane{
+	height:35px;
+	width: 100%;
+	border-radius:25px;
+	border: 0px solid #000;
+}
+
+.filariane{
+	background-color: #fff;
+	margin-bottom: 20px;
+}
+
+#pagedossier{
+	background-color: rgb(184, 183, 183);
+	width: 70%;
+	height: 400px;
+	border-radius: 25px;
+	padding-top: 18px;
+}
+
+a{
+	margin: auto;
+}
+
+.nopadding{
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+
+@media (min-width: 768px) { 
+
+}
+
+@media (min-width: 992px) { 
+	#header{
+		padding-top: 150px;
+	}
+	
+	.icone, .doc{
+		width: 60px;
+		height: 60px;
+	}
+
+	.formulaire{
+		padding-top: 10px;
+	}
+
+	.filariane{
+		margin-top: 20px;
+		margin-bottom: 30px;
+	}
+}
+
+@media (min-width: 1200px) { 
+	
+ }
+
