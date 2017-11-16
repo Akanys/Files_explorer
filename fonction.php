@@ -1,5 +1,4 @@
 <?php
-
 function Erreur($msgerreur)/*Afficher page html jusqua body*/
 {
 echo '
@@ -35,6 +34,4 @@ Modifie l'header forcer le telechargement au client , au  fichier desirer
   readfile($file); /*Lit le fichier */
   exit; /*On Quit pour ne rien envoyez d'autre*/
 }
-
-
 ?>

@@ -1,9 +1,9 @@
 body{
-	background-color: #000;
+	background-color: rgb(101, 138, 168);
 }
 
 #header{
-	padding-top: 40px;
+	margin-top: 2%;
 }
 
 .icone, .doc{
@@ -26,19 +26,22 @@ body{
 	width: 100%;
 	border-radius:25px;
 	border: 0px solid #000;
+	padding-left: 10px;
 }
 
 .filariane{
 	background-color: #fff;
 	margin-bottom: 20px;
+	padding-top: 5px;
 }
 
 #pagedossier{
-	background-color: rgb(184, 183, 183);
+	background-color: #fff;
 	width: 70%;
-	height: 400px;
+	padding: 20px;
 	border-radius: 25px;
 	padding-top: 18px;
+	margin-bottom: 2%;
 }
 
 a{
@@ -56,9 +59,6 @@ a{
 }
 
 @media (min-width: 992px) { 
-	#header{
-		padding-top: 150px;
-	}
 	
 	.icone, .doc{
 		width: 60px;
