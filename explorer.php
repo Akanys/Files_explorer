@@ -169,11 +169,10 @@ if(!$handle)
             <a href="#" class="icone" onclick="display_('download');"><img alt="button Download" width="50px" title="Telecharger un fichier" src="img/Download.png" /></a>       
           </div>
           <div class="col-2 col-md-1 nopadding">
-            <a href="#" class="icone" onclick="display_('search');"><img alt="button search" width="50px" title="Rechercher un fichier" src="<?php echo $IMGSEARCH; ?>" /></a>
+          <a href="#" class="icone" onclick="display_('search');"><img alt="button search" width="50px" title="Chercher" src="<?php echo $IMGSEARCH; ?>" /></a>
           </div>                 
-
-          <form class="formulaire col-8 col-md-5">
-            <input class="champ " type="text" placeholder="Search..." />
+          <form class="formulaire col-8 col-md-5" id="search" style="display:none;">
+            <input class="champ" type="text" placeholder="Search..." id="larecherche"/><div id="recherche"></div>
           </form>
 
           <div class=" col-8">
@@ -223,6 +222,52 @@ if(!$handle)
               echo '<img src="'.$IMGFILE.'" width="50px" alt="Fichier"/>'.$f.'<a href="?delete='.$replien.'/'.$lien.'" onclick="return confirm(\'Supprimer '.$f.' ?\');"><img alt="Supprimer" width="30px" title="/!\Supprimer/!\ " src="'.$IMGDELETE.'" /></a><a href="?download='.$replien.'/'.$lien.'" ><img alt="Telecharger" width="30px" title="Telecharger " src="'.$IMGUPLOAD.'" /></a><br />';
           }
           }
+          ?>
+          <script>
+
+           var fichiers = [];
+           <?php
+             $handle = @opendir($rep); /* Ouvre le repertoire */
+          while ($fichier = readdir($handle)) {
+           echo "fichiers.push('".$fichier."');";
+          } ?>
+          console.log(fichiers);
+          
+          function load(nameid)
+          {
+          var champsearch=document.getElementById(nameid);
+          var TIME_RELOAD=1500;
+          champsearch.onkeyup=function ()
+          {
+            var launcher= window.setTimeout(function () { recherchetable(champsearch.value); },TIME_RELOAD);	
+            champsearch.onkeydown=function ()
+            {
+                  window.clearTimeout(launcher);
+              }
+            }
+          }
+          
+          window.onload=function ()
+          {
+            load("larecherche");
+          }
+          
+          function recherchetable(recherche)
+          {
+          var champsearch=document.getElementById('larecherche');
+          document.getElementById('recherche').innerHTML=""; /*Vide le contenu  de la recherche*/
+          if(fichiers.indexOf(recherche) === -1)
+          {
+          console.log('Pas ici');
+          champsearch.style.backgroundColor = '#fc8989';
+          }
+          else{
+          console.log('ici');
+          champsearch.style.backgroundColor = '#c7ffd5';
+          }
+          }
+          </script>
+          <?php
           }
 
           /*Formulaire Pour crée un fichier */
